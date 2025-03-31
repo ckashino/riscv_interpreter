@@ -164,7 +164,7 @@ func (cpu *CPU) GetCurrInstr() string {
 	instr_num := int((cpu.PC - 16) / 4)
 
 	if instr_num < (len(cpu.instructions)) && instr_num >= 0 {
-		return cpu.instructions[instr_num]
+		return strings.TrimSpace(cpu.instructions[instr_num])
 	} else {
 		return ""
 	}

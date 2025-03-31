@@ -108,11 +108,16 @@ func main() {
 
 	title.SetText("Risc-V Interpreter").SetBorder(true)
 
+	controls := tview.NewTextView()
+	controls.SetText("(N)ext step: C-n	(R)un/(R)estart: C-r").SetBorder(true)
+	controls.SetTextAlign(tview.AlignCenter)
+
 	grid.AddItem(title, 0, 0, 1, 3, 0, 0, false).
 		AddItem(instructions, 1, 0, 1, 1, 0, 0, true).
 		AddItem(registerInfo, 1, 1, 1, 1, 0, 0, false).
 		AddItem(memoryInfo, 1, 2, 1, 1, 0, 0, false).
-		AddItem(currInstr, 2, 0, 1, 3, 0, 0, false)
+		AddItem(currInstr, 2, 0, 1, 1, 0, 0, false).
+		AddItem(controls, 2, 1, 1, 2, 0, 0, false)
 
 	app := tview.NewApplication()
 
