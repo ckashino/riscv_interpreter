@@ -264,7 +264,7 @@ func (cpu *CPU) loadWord(address uint32) int32 {
 	}
 
 	value := int32(binary.LittleEndian.Uint32(cpu.Memory[address:]))
-	cpu.MemoryHistory = append([]string{fmt.Sprintf("Loaded word (%d) from  %d", value, address)}, cpu.MemoryHistory...)
+	cpu.MemoryHistory = append([]string{fmt.Sprintf("Loaded word (%d) from address %d", value, address)}, cpu.MemoryHistory...)
 	return value
 }
 
@@ -274,7 +274,7 @@ func (cpu *CPU) loadHalf(address uint32) uint16 {
 		return 0
 	}
 	value := binary.LittleEndian.Uint16(cpu.Memory[address:])
-	cpu.MemoryHistory = append([]string{fmt.Sprintf("Loaded half (%d) from  %d", value, address)}, cpu.MemoryHistory...)
+	cpu.MemoryHistory = append([]string{fmt.Sprintf("Loaded half (%d) from address %d", value, address)}, cpu.MemoryHistory...)
 	return value
 }
 
@@ -284,7 +284,7 @@ func (cpu *CPU) loadByte(address uint32) uint8 {
 		return 0
 	}
 	value := uint8(cpu.Memory[address])
-	cpu.MemoryHistory = append([]string{fmt.Sprintf("Loaded byte (%d) from  %d", value, address)}, cpu.MemoryHistory...)
+	cpu.MemoryHistory = append([]string{fmt.Sprintf("Loaded byte (%d) from address %d", value, address)}, cpu.MemoryHistory...)
 	return value
 }
 
